@@ -79,6 +79,8 @@ The gets function in the main is prone to buffer overflow attacks. Since we know
                        +----------------------+
                        |     saved $ebp       |
                        +----------------------+
+	               |         $eip         |
+	               +----------------------+
                        |                      | <--+  padding done by compilers
                        +------------+---------+
                        |         |4 |         |
@@ -115,7 +117,8 @@ Looking at the registers, we see :
 
 The value of EBP is 0x47464544, corresponding to the following ascii characters : G(47), F(46), E(45), D(44). 
 The value of EIP is 0x4b4a4948, corresponding to the following ascii characters : H(48), I(49), J(4a), K(4b)
-It means we overwrite the EIP register using the 77-80th characters.
+It makes sense since EIP typically follows EBP in the stack.
+It means we can overwrite the EIP register using the 77-80th characters.
 If we pass the address of the run function to EIP, it will be executed as the next instruction.
 
 	python -c 'print "A"*76+"\x44\x84\x04\x08"' > payload // address in little endian order
