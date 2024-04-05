@@ -79,11 +79,11 @@ This is how the stack will look like :
 	   +------------------------+  |
 	   |         edx = 0        |  |
 	   +------------------------+  |
-	   +->|   ebx = addr chaine    |--+
-	   |  +------------------------+
-	   |  |            0           |
-	   |  +------------------------+
-	   +--| ecx = addr addr chaine |
-	      +------------------------+
+	+->|   ebx = addr chaine    |--+
+	|  +------------------------+
+	|  |            0           |
+	|  +------------------------+
+	+--| ecx = addr addr chaine |
+	   +------------------------+
 
 [source](https://repo.zenk-security.com/Techniques%20d.attaques%20%20.%20%20Failles/Les%20shellcodes.pdf)
