@@ -75,15 +75,15 @@ Here is our code :
 This is how the stack will look like : 
 
 	   +------------------------+
-	|        //bin/sh        |<-+
-	+------------------------+  |
-	|         edx = 0        |  |
-	+------------------------+  |
-	+->|   ebx = addr chaine    |--+
-	|  +------------------------+
-	|  |            0           |
-	|  +------------------------+
-	+--| ecx = addr addr chaine |
-	+------------------------+
+	   |        //bin/sh        |<-+
+	   +------------------------+  |
+	   |         edx = 0        |  |
+	   +------------------------+  |
+	   +->|   ebx = addr chaine    |--+
+	   |  +------------------------+
+	   |  |            0           |
+	   |  +------------------------+
+	   +--| ecx = addr addr chaine |
+	      +------------------------+
 
 [source](https://repo.zenk-security.com/Techniques%20d.attaques%20%20.%20%20Failles/Les%20shellcodes.pdf)
