@@ -40,7 +40,7 @@
         0x08048519 <+117>:	ret    
     End of assembler dump.
 
-The main simply calls the v function. It simply prints back the characters read from the stdin with printf.
+The main simply calls the v function. It prints back the characters read from the stdin with printf.
 
 We can also see a check that will run a shell if the value is set to 0x40 (hex) / 64 (dec), but we can't interact with it directly.
 
@@ -95,7 +95,7 @@ We set a breakpoint right after the printf call, to see if we successfully overf
     fs             0x0	0
     gs             0x33	51
 
-Our string was 5 characters long (%4$n is a modifier but is included as well, however it won't count for some reason), and we got a value of 5. To have a size of 64, we simply need to add 60 more characters.
+Our string was 5 characters long (%4$n is a modifier but is included as well, however it won't count in the end for some reason), and we got a value of 5. To have a size of 64 (without %4$n), we simply need to add 60 more characters.
 
     $ python -c 'print "\x8c\x98\x04\x08"+"Y"*60+"%4$n"' > payload
 

