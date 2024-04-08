@@ -14,7 +14,7 @@ Using gdb:
 	   0x08048495 <+21>:	leave  
 	   0x08048496 <+22>:	ret    
 	End of assembler dump.
-	
+
 We can also find a function in the source code which is never used :
 
 	(gdb) disas run
@@ -36,7 +36,7 @@ We can also find a function in the source code which is never used :
 	   0x0804847f <+59>:	ret    
 	End of assembler dump.
 
-This run function is able to start a shell. The goal is to call this function within the main.
+This run() function is able to start a shell. The goal is to call this function within the main.
 The gets function in the main is prone to buffer overflow attacks. Since we know the buffer size, we can start to craft a payload that will overwrite the EIP register (instruction pointer), to pass it the address of run. We can see its address is 0x08048444.
 
                         +---------------+ Highest Address 0xffffffff
