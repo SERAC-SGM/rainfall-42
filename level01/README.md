@@ -77,10 +77,10 @@ The gets function in the main is prone to buffer overflow attacks. Since we know
                        +----------------------+
                        |    return address    |
                        +----------------------+
-                       |     saved $ebp       |
-                       +----------------------+
-	               |         $eip         |
-	               +----------------------+
+	                   |     saved $ebp       |
+	                   +----------------------+
+		           |         $eip         |
+	                   +----------------------+
                        |                      | <--+  padding done by compilers
                        +------------+---------+
                        |         |4 |         |
