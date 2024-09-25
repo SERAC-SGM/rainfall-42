@@ -2,7 +2,7 @@
 
 <h2>PREAMBLE</h2>
 
-This project is the second cybersecurity project of Ecole 42. It consists in completing 15 CTF (Capture the Flag) challenges, mostly focusing on Buffer Overflow attacks. 
+This project is the second cybersecurity project of Ecole 42 (see [snow_crash](https://github.com/SERAC-SGM/Snow-crash)). It consists in completing 15 CTF (Capture the Flag) challenges, mostly focusing on Buffer Overflow attacks. 
 
 <h2>HOW IT WORKS</h2>
 
