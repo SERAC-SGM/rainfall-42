@@ -1,8 +1,8 @@
 # Level0
 
-level0@RainFall:~$ ls -l
-total 732
--rwsr-x---+ 1 level1 users 747441 Mar  6  2016 level0
+	level0@RainFall:~$ ls -l
+	total 732
+	-rwsr-x---+ 1 level1 users 747441 Mar  6  2016 level0
 
 Using gdb, we can see that the first argument is being compared with 0x1a7 :
 
